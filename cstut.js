@@ -6,7 +6,11 @@ and stuff
  */
 
 (function() {
-  var aString, age, areYouHappy, balance, csOutput, fName, gappyString, i, lName, largeNumStr, largestNum, len, longString, name, newRandNum, precisionTest, randNum, smallNumStr, smallestNum, strArray, x;
+  var Animal, Dog, aString, age, areYouHappy, balance, chicken, chickenName, childAge, coat, combinedArray, csOutput, employee, employeeIndex, employees, evensOnly, fName, factorial, gappyString, getRandNum, gloves, grover, hat, helloFunc, i, j, jefferson, k, l, lName, largeNumStr, largestNum, len, len1, len2, len3, len4, longString, m, monkeys, movieRank, n, name, newRandNum, o, oneTo10, p, peopleArray, precisionTest, randArray, randNum, schoolGrade, smallNumStr, smallestNum, sparky, strArray, sumNums, sumOfArr, tenTo1, votingAge, x, y,
+    indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
+    slice = [].slice,
+    extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    hasProp = {}.hasOwnProperty;
 
   name = "Phil";
 
@@ -126,8 +130,8 @@ and stuff
 
   csOutput.insertAdjacentHTML('beforeend', "New String split into an array : " + strArray + "<br>");
 
-  for (i = 0, len = strArray.length; i < len; i++) {
-    x = strArray[i];
+  for (j = 0, len = strArray.length; j < len; j++) {
+    x = strArray[j];
     csOutput.insertAdjacentHTML('beforeend', x + "<br>");
   }
 
@@ -149,7 +153,7 @@ and stuff
   == and !== are the same as === and !== normal JS.
    */
 
-  age = 19;
+  age = 3;
 
   if (age >= 18) {
     csOutput.insertAdjacentHTML('beforeend', "You can vote!<br>");
@@ -161,5 +165,379 @@ and stuff
   } else {
     csOutput.insertAdjacentHTML('beforeend', 'You\'ll be 16 soon<br>');
   }
+
+  if (!(age >= 19)) {
+    csOutput.insertAdjacentHTML('beforeend', 'You\'ll be in school<br>');
+  } else {
+    csOutput.insertAdjacentHTML('beforeend', 'You may go to college<br>');
+  }
+
+  if (!(age > 4) || (age > 65)) {
+    csOutput.insertAdjacentHTML('beforeend', 'You don\'t have to be in school<br>');
+  } else if ((age >= 5) && (age <= 6)) {
+    csOutput.insertAdjacentHTML('beforeend', 'Got to kindergarten<br>');
+  } else if ((age > 6) && (age <= 18)) {
+    csOutput.insertAdjacentHTML('beforeend', 'You don\'t have to be in school<br>');
+    schoolGrade = "Go to Grade " + (age - 5) + "<br>";
+    csOutput.insertAdjacentHTML('beforeend', schoolGrade + "<br>");
+  } else {
+    csOutput.insertAdjacentHTML('beforeend', "Go to work!<br>");
+  }
+
+  votingAge = age > 18 ? true : false;
+
+  csOutput.insertAdjacentHTML('beforeend', "Can I vote? " + votingAge + "<br>");
+
+  childAge = 21;
+
+  switch (childAge) {
+    case 5:
+      csOutput.insertAdjacentHTML('beforeend', 'Go to kindergarten<br>');
+      break;
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+      csOutput.insertAdjacentHTML('beforeend', 'Go to Elementary School<br>');
+      break;
+    default:
+      csOutput.insertAdjacentHTML('beforeend', 'Go to where you belong<br>');
+  }
+
+  if (age != null) {
+    csOutput.insertAdjacentHTML('beforeend', age + "<br>");
+  }
+
+  chicken = null;
+
+  chickenName = chicken != null ? chicken : "Fred";
+
+  csOutput.insertAdjacentHTML('beforeend', "Chicken Name: " + chickenName + "<br>");
+
+  hat = "Winter Hat";
+
+  coat = "Winter Coat";
+
+  gloves = null;
+
+  if ((hat != null) && (coat != null)) {
+    csOutput.insertAdjacentHTML('beforeend', hat + " " + coat + " " + (gloves != null ? gloves : 'Winter Gloves') + "<br>");
+  }
+
+  randArray = ["word", false, 1234, 1.234];
+
+  csOutput.insertAdjacentHTML('beforeend', "Index 2: " + randArray[2] + "<br>");
+
+  csOutput.insertAdjacentHTML('beforeend', "Last 2 indexes: " + randArray.slice(2, 4) + "<br>");
+
+  oneTo10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  tenTo1 = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+  combinedArray = oneTo10.concat(tenTo1);
+
+  oneTo10.push.apply(oneTo10, tenTo1);
+
+  for (k = 0, len1 = oneTo10.length; k < len1; k++) {
+    x = oneTo10[k];
+    csOutput.insertAdjacentHTML('beforeend', x + "<br>");
+  }
+
+  csOutput.insertAdjacentHTML('beforeend', (oneTo10.toString()) + "<br>");
+
+  evensOnly = oneTo10.filter(function(x) {
+    return x % 2 === 0;
+  });
+
+  csOutput.insertAdjacentHTML('beforeend', "here are all the evens: " + (evensOnly.toString()) + "<br>");
+
+  csOutput.insertAdjacentHTML('beforeend', "The max number is: " + (Math.max.apply(Math, oneTo10)) + "<br>");
+
+  csOutput.insertAdjacentHTML('beforeend', "The min number is: " + (Math.min.apply(Math, oneTo10)) + "<br>");
+
+  sumOfArr = oneTo10.reduce(function(x, y) {
+    return x + y;
+  });
+
+  csOutput.insertAdjacentHTML('beforeend', "The sum of the array: " + sumOfArr + "<br>");
+
+  csOutput.insertAdjacentHTML('beforeend', "Array Reversed: " + (tenTo1.reverse()) + "<br>");
+
+  peopleArray = [
+    {
+      name: "Paul",
+      age: 43
+    }, {
+      name: "Sue",
+      age: 39
+    }
+  ];
+
+  csOutput.insertAdjacentHTML('beforeend', "First Name of first person in object: " + peopleArray[0].name + "<br>");
+
+  oneTo10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  csOutput.insertAdjacentHTML('beforeend', "A basic loop from 1 to ten:<br>");
+
+  for (l = 0, len2 = oneTo10.length; l < len2; l++) {
+    x = oneTo10[l];
+    csOutput.insertAdjacentHTML('beforeend', x + "<br>");
+  }
+
+  csOutput.insertAdjacentHTML('beforeend', "A basic loop through all the odds in 1 to ten:<br>");
+
+  for (m = 0, len3 = oneTo10.length; m < len3; m++) {
+    x = oneTo10[m];
+    if (x % 2 !== 0) {
+      csOutput.insertAdjacentHTML('beforeend', x + "<br>");
+    }
+  }
+
+  csOutput.insertAdjacentHTML('beforeend', "A basic loop of all the evens from 50 to 100:<br>");
+
+  for (x = n = 50; n <= 100; x = ++n) {
+    if (x % 2 === 0) {
+      csOutput.insertAdjacentHTML('beforeend', x + "<br>");
+    }
+  }
+
+  csOutput.insertAdjacentHTML('beforeend', "Counting by two's from 20 to 40:<br>");
+
+  for (x = o = 20; o <= 40; x = o += 2) {
+    csOutput.insertAdjacentHTML('beforeend', x + "<br>");
+  }
+
+  employees = ["Doug", "Sue", "Paul"];
+
+  csOutput.insertAdjacentHTML('beforeend', "A list of employees and their index:<br>");
+
+  for (employeeIndex = p = 0, len4 = employees.length; p < len4; employeeIndex = ++p) {
+    employee = employees[employeeIndex];
+    csOutput.insertAdjacentHTML('beforeend', "Index: " + employeeIndex + " Employee: " + employee + "<br>");
+  }
+
+  csOutput.insertAdjacentHTML('beforeend', "Finding values in an array:<br>");
+
+  if (indexOf.call(employees, "Doug") >= 0) {
+    csOutput.insertAdjacentHTML('beforeend', "I found Doug!<br>");
+  }
+
+  csOutput.insertAdjacentHTML('beforeend', "A basic while from 100 to 110:<br>");
+
+  i = 100;
+
+  while ((i += 1) <= 110) {
+    csOutput.insertAdjacentHTML('beforeend', "i = " + i + "<br>");
+  }
+
+  csOutput.insertAdjacentHTML('beforeend', "A basic while loop with a nursery rhyme:<br>");
+
+  monkeys = 10;
+
+  while (monkeys -= 1) {
+    csOutput.insertAdjacentHTML('beforeend', monkeys + " little monkeys jumping on the bed. One fell off and broke his head.<br>");
+  }
+
+  x = 0;
+
+  while (true) {
+    csOutput.insertAdjacentHTML('beforeend', (++x) + "<br>");
+    if (x === 5) {
+      break;
+    }
+  }
+
+  csOutput.insertAdjacentHTML('beforeend', "FUNCTIONS<br>");
+
+  csOutput.insertAdjacentHTML('beforeend', "A basic hello function:<br>");
+
+  helloFunc = function(name) {
+    return "Hello, " + name;
+  };
+
+  csOutput.insertAdjacentHTML('beforeend', (helloFunc("Derek")) + "<br>");
+
+  csOutput.insertAdjacentHTML('beforeend', "A basic radom number generator:<br>");
+
+  getRandNum = function() {
+    return Math.floor(Math.random() * 100) + 1;
+  };
+
+  csOutput.insertAdjacentHTML('beforeend', "Random Number: " + (getRandNum()) + "<br>");
+
+  sumNums = function() {
+    var len5, q, sum, vars;
+    vars = 1 <= arguments.length ? slice.call(arguments, 0) : [];
+    sum = 0;
+    for (q = 0, len5 = vars.length; q < len5; q++) {
+      x = vars[q];
+      sum += x;
+    }
+    return sum;
+  };
+
+  csOutput.insertAdjacentHTML('beforeend', "Sum Function:" + (sumNums(1, 2, 3, 4, 5)) + "<br>");
+
+  movieRank = function(stars) {
+    if (stars == null) {
+      stars = 1;
+    }
+    if (stars <= 2) {
+      return "Bad";
+    } else {
+      return "Good";
+    }
+  };
+
+  csOutput.insertAdjacentHTML('beforeend', "Movie Ranking with no parameter: " + (movieRank()) + "<br>");
+
+  csOutput.insertAdjacentHTML('beforeend', "Movie Ranking with custom parameter: " + (movieRank(4)) + "<br>");
+
+  factorial = function(x) {
+    if (x < 0) {
+      return 0;
+    }
+    if (x === 0 || x === 1) {
+      return 1;
+    }
+    return x * factorial(x - 1);
+  };
+
+  csOutput.insertAdjacentHTML('beforeend', "Recursive Factorials:<br>");
+
+  csOutput.insertAdjacentHTML('beforeend', "Factorial of 4 is " + (factorial(4)) + "<br>");
+
+  csOutput.insertAdjacentHTML('beforeend', "Factorial of 5 is " + (factorial(5)) + "<br>");
+
+  csOutput.insertAdjacentHTML('beforeend', "Working with OBJECTS<br>");
+
+  jefferson = {
+    name: "Jefferson",
+    age: 41,
+    street: "123 Fake St"
+  };
+
+  csOutput.insertAdjacentHTML('beforeend', "Accessing object.name: " + jefferson.name + "<br>");
+
+  jefferson.state = "Delaware";
+
+  csOutput.insertAdjacentHTML('beforeend', "Creating a new object property through do notation:<br> jefferson.state = " + jefferson.state + "<br>");
+
+  for (x in jefferson) {
+    y = jefferson[x];
+    csOutput.insertAdjacentHTML('beforeend', x + " is " + y + "<br>");
+  }
+
+  csOutput.insertAdjacentHTML('beforeend', "CLASSES!<br>");
+
+  Animal = (function() {
+    Animal.prototype.name = "No Name";
+
+    Animal.prototype.height = 0;
+
+    Animal.prototype.weight = 0;
+
+    Animal.prototype.sound = "No Sound";
+
+    Animal.numOfAnimals = 0;
+
+    Animal.getNumOfAnimals = function() {
+      return Animal.numOfAnimals;
+    };
+
+    function Animal(name, height1, weight1) {
+      if (name == null) {
+        name = "No Name";
+      }
+      this.height = height1 != null ? height1 : 0;
+      this.weight = weight1 != null ? weight1 : 0;
+      this.name = name;
+      Animal.numOfAnimals++;
+    }
+
+    Animal.prototype.makeSound = function() {
+      return "says " + this.sound;
+    };
+
+    Animal.prototype.getInfo = function() {
+      return this.name + " is " + this.height + " cm tall and weighs " + this.weight + " kg and " + (this.makeSound());
+    };
+
+    return Animal;
+
+  })();
+
+  grover = new Animal();
+
+  grover.name = "Grover";
+
+  grover.height = "60";
+
+  grover.weight = "35";
+
+  grover.sound = "Woof";
+
+  csOutput.insertAdjacentHTML('beforeend', (grover.getInfo()) + "<br>");
+
+  Animal.prototype.isItBig = function() {
+    if (this.height >= 45) {
+      return "Yes";
+    } else {
+      return "No";
+    }
+  };
+
+  csOutput.insertAdjacentHTML('beforeend', "Is grover big? " + (grover.isItBig()) + "<br>");
+
+  csOutput.insertAdjacentHTML('beforeend', "How many animals do we have? We have " + (Animal.getNumOfAnimals()) + "<br>");
+
+  Dog = (function(superClass) {
+    extend(Dog, superClass);
+
+    Dog.prototype.sound2 = "No Sound";
+
+    function Dog(name, height, weight) {
+      if (name == null) {
+        name = "No Name";
+      }
+      if (height == null) {
+        height = 0;
+      }
+      if (weight == null) {
+        weight = 0;
+      }
+      Dog.__super__.constructor.call(this, name, height, weight);
+    }
+
+    Dog.prototype.makeSound = function() {
+      return Dog.__super__.makeSound.apply(this, arguments) + (" and " + this.sound2);
+    };
+
+    return Dog;
+
+  })(Animal);
+
+  sparky = new Dog("Sparky", 35, 46);
+
+  sparky.sound = "Woooooof";
+
+  sparky.sound2 = "yip yip";
+
+  csOutput.insertAdjacentHTML('beforeend', "" + (sparky.getInfo()));
+
+
+  /*
+  adfadf
+  
+  dfa
+  dfads
+  f
+  adf
+  ad
+  fa
+  f
+  adf
+   */
 
 }).call(this);
