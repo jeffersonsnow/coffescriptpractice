@@ -94,4 +94,25 @@ csOutput.insertAdjacentHTML('beforeend', "String with trim function : #{gappyStr
 csOutput.insertAdjacentHTML('beforeend', "Uppercase: #{longString.toUpperCase()}<br>")
 csOutput.insertAdjacentHTML('beforeend', "Lowercase: #{longString.toLowerCase()}<br>")
 
-#conditionals
+###conditionals
+We use indentation instead of brackets
+== and !== are the same as === and !== normal JS.
+###
+
+# age = 3
+# age = 16
+age = 19
+if age >= 18
+  csOutput.insertAdjacentHTML('beforeend',
+    "You can vote!<br>")
+
+  if (age >= 16)
+    csOutput.insertAdjacentHTML('beforeend',
+      "You can drive also!<br>")
+
+else if (age >=16)
+  csOutput.insertAdjacentHTML('beforeend',
+    "You can drive!<br>")
+else
+    csOutput.insertAdjacentHTML('beforeend',
+      'You\'ll be 16 soon<br>')

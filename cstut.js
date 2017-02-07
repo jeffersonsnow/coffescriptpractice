@@ -6,7 +6,7 @@ and stuff
  */
 
 (function() {
-  var aString, areYouHappy, balance, csOutput, fName, gappyString, i, lName, largeNumStr, largestNum, len, longString, name, newRandNum, precisionTest, randNum, smallNumStr, smallestNum, strArray, x;
+  var aString, age, areYouHappy, balance, csOutput, fName, gappyString, i, lName, largeNumStr, largestNum, len, longString, name, newRandNum, precisionTest, randNum, smallNumStr, smallestNum, strArray, x;
 
   name = "Phil";
 
@@ -142,5 +142,24 @@ and stuff
   csOutput.insertAdjacentHTML('beforeend', "Uppercase: " + (longString.toUpperCase()) + "<br>");
 
   csOutput.insertAdjacentHTML('beforeend', "Lowercase: " + (longString.toLowerCase()) + "<br>");
+
+
+  /*conditionals
+  We use indentation instead of brackets
+  == and !== are the same as === and !== normal JS.
+   */
+
+  age = 19;
+
+  if (age >= 18) {
+    csOutput.insertAdjacentHTML('beforeend', "You can vote!<br>");
+    if (age >= 16) {
+      csOutput.insertAdjacentHTML('beforeend', "You can drive also!<br>");
+    }
+  } else if (age >= 16) {
+    csOutput.insertAdjacentHTML('beforeend', "You can drive!<br>");
+  } else {
+    csOutput.insertAdjacentHTML('beforeend', 'You\'ll be 16 soon<br>');
+  }
 
 }).call(this);
